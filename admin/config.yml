@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: mikeprosper1/grace-clothing
   branch: main
 
 media_folder: "images"
@@ -8,16 +9,17 @@ public_folder: "/images"
 collections:
   - name: "products"
     label: "Products"
-    folder: "data"
-    extension: "json"
-    format: "json"
-    create: true
-    slug: "{{slug}}"
-    editor:
-      preview: false
-    fields:
-      - {label: "Product ID", name: "id", widget: "number"}
-      - {label: "Product Name", name: "name", widget: "string"}
-      - {label: "Price (₦)", name: "price", widget: "number"}
-      - {label: "Stock Quantity", name: "stock", widget: "number", default: 5}
-      - {label: "Product Image", name: "image", widget: "image"}
+    files:
+      - name: "products"
+        label: "Products List"
+        file: "data/products.json"
+        fields:
+          - label: "Products"
+            name: "products"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "number"}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Price", name: "price", widget: "number"}
+              - {label: "Stock", name: "stock", widget: "number"}
+              - {label: "Image", name: "image", widget: "image"}
