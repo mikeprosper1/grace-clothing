@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grace Clothing</title>
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <img src="images/logo.png" alt="Grace Clothing Logo" class="logo">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="payment.html">Payment</a>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Luxury & Elegant Women's Fashion</h2>
+                <p>Discover beautiful outfits made to bring out your grace</p>
+                <a href="shop.html" class="btn">Shop Now</a>
+            </div>
+        </section>
+
+        <!-- WHY GRACE CLOTHING -->
+        <section class="about">
+            <h3>Why Grace Clothing?</h3>
+            <p>
+                Grace Clothing offers carefully selected women's wear,
+                combining elegance, comfort, and confidence. Premium quality, 
+                stylish designs, and fast delivery guaranteed.
+            </p>
+        </section>
+
+        <!-- FIRST 14 PRODUCTS ON HOME PAGE -->
+        <section class="shop featured">
+            <h2>Our Premium Collection</h2>
+            <div class="product-grid" id="homeProductGrid">
+                <!-- First 14 products will be inserted here by JS -->
+            </div>
+            <div class="home-buttons">
+                <a href="shop.html" class="btn">Explore Full Collection</a>
+            </div>
+        </section>
+
+        <!-- CONTACT US -->
+        <section class="about contact-home">
+            <h3>Contact Us</h3>
+            <p style="margin-bottom:20px;">Have questions or want to order directly? Reach out via WhatsApp!</p>
+            <a href="https://wa.me/2348133813733" target="_blank" class="btn-contact-home">Message Us on WhatsApp</a>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Grace Clothing. All Rights Reserved.
+    </footer>
+
+    <!-- IMAGE MODAL -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg" alt="product image">
+    </div>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+    
+    <!-- Netlify Identity redirect script -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+</body>
+</html>

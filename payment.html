@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grace Clothing - Payment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Optional: Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <h1 class="logo">Grace Clothing</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="payment.html">Payment</a>
+    </nav>
+  </header>
+
+  <!-- PAYMENT SECTION -->
+  <section class="payment">
+    <h2>Make Your Payment</h2>
+
+    <div class="payment-grid">
+
+      <!-- Palmpay Card -->
+      <div class="payment-card">
+        <img src="images/palmpay.png" alt="PalmPay" class="payment-icon">
+        <h3>PalmPay</h3>
+        <p><strong>Account Name:</strong> Grace Clothing</p>
+        <p><strong>Account Number:</strong> 8133813733</p>
+        <p><strong>Bank:</strong> PalmPay</p>
+      </div>
+
+      <!-- Moniepoint Card -->
+      <div class="payment-card">
+        <img src="images/moniepoint.png" alt="Moniepoint" class="payment-icon">
+        <h3>Moniepoint</h3>
+        <p><strong>Account Name:</strong> Grace Clothing</p>
+        <p><strong>Account Number:</strong> 8133813733</p>
+        <p><strong>Bank:</strong> Moniepoint</p>
+      </div>
+
+    </div>
+
+    <p class="instructions">
+      After making your payment, click the button below to send your **payment screenshot** on WhatsApp.  
+      We will confirm your order and schedule collection from our shop.
+    </p>
+
+    <button onclick="sendPaymentWhatsApp()">Send Payment Screenshot</button>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Grace Clothing. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
