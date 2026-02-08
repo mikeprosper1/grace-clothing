@@ -12,9 +12,8 @@ const whatsappNumber = "2348133813733"; // replace with your mom's number
 fetch("data/products.json")
   .then(res => res.json())
   .then(data => {
-    const products = data.products;  // <-- get the array
-    populateHome(products);
-    populateShop(products);
+    populateHome(data.products);
+    populateShop(data.products);
   })
   .catch(err => console.error("Product load error:", err));
 
