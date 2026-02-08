@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: mikeprosper1/grace-clothing
+  name: git-gateway
   branch: main
-  auth_type: implicit
-  site_domain: https://grace-clothing.netlify.app
 
 media_folder: "images"
 public_folder: "/images"
@@ -17,12 +14,8 @@ collections:
         file: "data/products.json"
         format: "json"
         fields:
-          - label: "Products"
-            name: "products"
-            widget: "list"
-            fields:
-              - { label: "ID", name: "id", widget: "number" }
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Price", name: "price", widget: "number" }
-              - { label: "Stock", name: "stock", widget: "number" }
-              - { label: "Image", name: "image", widget: "image" }
+          - { label: "ID", name: "id", widget: "number" }
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Price", name: "price", widget: "number" }
+          - { label: "Stock", name: "stock", widget: "number" }
+          - { label: "Image", name: "image", widget: "image" }
