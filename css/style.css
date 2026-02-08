@@ -22,47 +22,107 @@
   background: var(--black);
   color: var(--gold);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* brand left, nav right */
   align-items: center;
-  padding: 10px 32px; /* SLIM */
+  padding: 10px 40px;
+  flex-wrap: nowrap; /* keep everything in one line */
 }
 
-/* ===== NAVBAR LOGO ===== */
-.logo {
-  height: 56px;              /* Professional size */
-  width: auto;
-  object-fit: contain;
-  display: block;
+.brand-text {
+  color: var(--gold);
+  font-size: 16px;      /* smaller, sleek size */
+  font-weight: 600;     /* slightly lighter */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+  white-space: nowrap;   /* prevents line wrap */
 }
 
-/* Navbar alignment safety */
-.navbar,
-nav {
+.navbar nav {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Mobile adjustment */
-@media (max-width: 768px) {
-  .logo {
-    height: 48px;
-  }
+  gap: 20px;             /* space between nav links */
 }
 
 .navbar nav a {
-  color: var(--white);
   text-decoration: none;
-  margin-left: 20px;
-  font-size: 16px;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #000;
+  color: #fff;
+  transition: background 0.3s ease;
 }
 
 .navbar nav a:hover {
-  color: var(--gold);
+  background: #444;
 }
-.navbar nav a {
-  font-size: 14px;
-  padding: 6px 10px;
+
+/* ========================== */
+/* MOBILE RESPONSIVE NAVBAR */
+@media screen and (max-width: 768px) {
+  .brand-text {
+    font-size: 14px;    /* smaller on tablet */
+  }
+
+  .navbar nav a {
+    font-size: 13px;
+    padding: 5px 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 8px 15px;
+  }
+
+  .brand-text {
+    font-size: 12px;    /* small and subtle on phone */
+  }
+
+  .navbar nav a {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+
+  .navbar nav {
+    gap: 8px;
+  }
+}
+/* ========================== */
+/* MOBILE RESPONSIVE NAVBAR */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .brand-text {
+    font-size: 18px;
+  }
+
+  .navbar nav a {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 8px 15px;
+    flex-wrap: nowrap; /* ensure everything stays in one line */
+  }
+
+  .brand-text {
+    font-size: 16px;
+  }
+
+  .navbar nav {
+    gap: 10px;
+  }
+
+  .navbar nav a {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
 }
 /* ========================== */
 /* HERO - HOME PAGE */
