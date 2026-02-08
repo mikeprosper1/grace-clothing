@@ -2,6 +2,8 @@ backend:
   name: github
   repo: mikeprosper1/grace-clothing
   branch: main
+  base_url: https://grace-clothings.netlify.app/admin
+  auth_endpoint: /.netlify/functions/auth-callback
 
 media_folder: "images"
 public_folder: "/images"

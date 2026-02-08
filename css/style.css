@@ -24,7 +24,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  padding: 10px 32px; /* SLIM */
 }
 
 /* ===== NAVBAR LOGO ===== */
@@ -60,12 +60,16 @@ nav {
 .navbar nav a:hover {
   color: var(--gold);
 }
-
+.navbar nav a {
+  font-size: 14px;
+  padding: 6px 10px;
+}
 /* ========================== */
 /* HERO - HOME PAGE */
 .hero {
   height: 50vh;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url("../images/hero.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -648,6 +652,15 @@ main {
 
 .navbar nav a:hover {
   background: #444;
+}
+/* ===== BRAND TEXT (REPLACES LOGO IMAGE) ===== */
+.brand-text {
+  color: var(--gold);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 /* ========================== */
