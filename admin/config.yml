@@ -1,6 +1,8 @@
 backend:
   name: git-gateway
   branch: main
+  base_url: https://grace-clothings.netlify.app/admin
+  auth_endpoint: /.netlify/functions/auth-callback
 
 media_folder: "images"
 public_folder: "/images"
@@ -18,8 +20,8 @@ collections:
             name: "products"
             widget: "list"
             fields:
-              - { label: "ID", name: "id", widget: "number" }
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Price", name: "price", widget: "number" }
-              - { label: "Stock", name: "stock", widget: "number" }
-              - { label: "Image", name: "image", widget: "image" }
+              - {label: "ID", name: "id", widget: "number"}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Price", name: "price", widget: "number"}
+              - {label: "Stock", name: "stock", widget: "number"}
+              - {label: "Image", name: "image", widget: "image"}
