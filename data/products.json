@@ -489,11 +489,13 @@
       "price": 16000,
       "stock": 5,
       "image": "/images/70.jpg"
-    }
-  ],
+    },
+  {
   "id": 71,
   "name": "Cloth 72",
   "price": 15000,
   "stock": 5,
   "image": "/images/6888.jpg"
+},
+      ],
 }
