@@ -7,8 +7,10 @@
   <title>Grace Clothing</title>
   <link rel="stylesheet" href="css/style.css">
   
-  <!-- Netlify Identity Widget -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- SUPABASE - Load in correct order -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
     <!-- NAVBAR -->
@@ -71,8 +73,5 @@
         <span class="close">&times;</span>
         <img class="modal-content" id="modalImg" alt="product image">
     </div>
-
-    <!-- JS -->
-    <script src="js/main.js"></script>
 </body>
 </html>

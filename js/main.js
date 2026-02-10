@@ -2,22 +2,36 @@
 // GLOBAL CONFIG
 // ==========================
 console.log("Grace Clothing website loaded successfully");
-const whatsappNumber = "2348133813733"; // replace with your mom's number
-
-
+const whatsappNumber = "2348133813733";
 
 // ==========================
-// LOAD PRODUCTS FROM JSON
+// LOAD PRODUCTS FROM SUPABASE
 // ==========================
-fetch("data/products.json")
-  .then(res => res.json())
-  .then(data => {
-    populateHome(data.products);
-    populateShop(data.products);
-  })
-  .catch(err => console.error("Product load error:", err));
+async function loadProducts() {
+  console.log("Starting to load products...");
+  console.log("supabaseClient exists:", typeof supabaseClient);
+  
+  try {
+    const { data, error } = await supabaseClient
+      .from('products')
+      .select('*');
 
+    console.log("Supabase response - data:", data);
+    console.log("Supabase response - error:", error);
 
+    if (error) throw error;
+
+    console.log("Number of products loaded:", data.length);
+    
+    populateHome(data);
+    populateShop(data);
+    
+    console.log("Products populated successfully!");
+  } catch (err) {
+    console.error("Product load error:", err.message);
+    console.error("Full error:", err);
+  }
+}
 
 // ==========================
 // POPULATE HOME PAGE (FIRST 14)
@@ -25,6 +39,9 @@ fetch("data/products.json")
 function populateHome(products) {
   const homeProductGrid = document.getElementById("homeProductGrid");
   if (!homeProductGrid) return;
+
+  // Clear existing content first to prevent duplicates
+  homeProductGrid.innerHTML = '';
 
   products.slice(0, 14).forEach(product => {
     const card = document.createElement("div");
@@ -37,17 +54,17 @@ function populateHome(products) {
     homeProductGrid.appendChild(card);
   });
 
-  // Banner under home products
-  const banner = document.createElement("div");
-  banner.className = "home-banner";
-  banner.innerHTML = `
-    <h3>Luxury, Quality & Style in Every Stitch</h3>
-    <p>Discover our curated selection of clothes designed to make you stand out.</p>
-  `;
-  homeProductGrid.parentNode.insertBefore(banner, homeProductGrid.nextSibling);
+  // Banner under home products (only add if it doesn't exist)
+  if (!document.querySelector('.home-banner')) {
+    const banner = document.createElement("div");
+    banner.className = "home-banner";
+    banner.innerHTML = `
+      <h3>Luxury, Quality & Style in Every Stitch</h3>
+      <p>Discover our curated selection of clothes designed to make you stand out.</p>
+    `;
+    homeProductGrid.parentNode.insertBefore(banner, homeProductGrid.nextSibling);
+  }
 }
-
-
 
 // ==========================
 // POPULATE SHOP PAGE (ALL)
@@ -56,7 +73,10 @@ function populateShop(products) {
   const productGrid = document.getElementById("productGrid");
   if (!productGrid) return;
 
-  products.forEach((product, index) => {
+  // Clear existing content first to prevent duplicates
+  productGrid.innerHTML = '';
+
+  products.forEach(product => {
     const card = document.createElement("div");
     card.className = "product-card";
     card.innerHTML = `
@@ -79,7 +99,14 @@ function populateShop(products) {
   });
 }
 
-
+// ==========================
+// RUN ONLY ONCE WHEN PAGE LOADS
+// ==========================
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadProducts);
+} else {
+  loadProducts();
+}
 
 // ==========================
 // IMAGE MODAL (PREVIEW)
@@ -111,8 +138,6 @@ if (modal) {
   };
 }
 
-
-
 // ==========================
 // WHATSAPP NEGOTIATION
 // ==========================
@@ -127,8 +152,6 @@ Can we negotiate the price?`;
   const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 }
-
-
 
 // ==========================
 // PAYMENT PAGE DATA
@@ -166,8 +189,6 @@ if (paymentSection && productName && productPrice) {
   container.appendChild(info);
   paymentSection.insertBefore(container, paymentSection.querySelector(".instructions"));
 }
-
-
 
 // ==========================
 // PAYMENT WHATSAPP BUTTON
